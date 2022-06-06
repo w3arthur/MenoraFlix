@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "Menora Flix",
+    "slug": "MenoraFlix",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#010101"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.w3arthur.MenoraFlix"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#010101"
+      },
+      "package": "com.w3arthur.MenoraFlix"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
