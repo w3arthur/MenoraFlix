@@ -56,20 +56,23 @@ const render = () => (<>
     <Input2 ref={searchRef} onChangeText={handleSearchDelay} leftIcon={<NativeButton2 onPress={async() => await handleRestart()}><Icon as={MaterialCommunityIcons} name="restart" size="lg" /></NativeButton2>} />
     <Box style={{  flex: 1, display: 'flex', flexDirection: 'column', minHeight: WINDOW_HEIGHT*0.825}}> 
 
-      <Box style={{  flex: 2.1, paddingTop: 15, minHeight: 180 }}>
+      <Box style={{  flex: 2.1, paddingTop: 15, minHeight: 190 }}>
         {!isSearch ? <Text lineHeight={'xs'} >Recommended Movies</Text> : null}
         <Carousel data={topMovies} onPress={(movie) => { handleSetSelectedMovie(movie) }} 
-        additionalBox={ (movie) => (<NativeButton2 onPress={() => {  handleStarPress(movie) }}><Center  style={{minHeight: 30, backgroundColor: '#2D2D2D', minHeight: 26,borderTopWidth: 1, borderColor: '#2F2F2F', borderBottomRightRadius: 2, borderBottomLeftRadius: 2}}><Icon as={Entypo} name="star" size={6} color={ favorites?.find(x => x.id === movie.id)? '#E40412' : '#f1f1f1' } /></Center></NativeButton2>) }/>
+          additionalBox={ (movie) => (<NativeButton2 onPress={() => {  handleStarPress(movie) }}><Center  style={{minHeight: 30, backgroundColor: '#2D2D2D', minHeight: 26,borderTopWidth: 1, borderColor: '#2F2F2F', borderBottomRightRadius: 2, borderBottomLeftRadius: 2}}><Icon as={Entypo} name="star" size={6} color={ favorites?.find(x => x.id === movie.id)? '#E40412' : '#f1f1f1' } /></Center></NativeButton2>) }
+        />
       </Box>
 
-      <Box style={{ flex: 4, paddingTop: 10, paddingBottom:10, minHeight: 250}}>
+      <Box style={{ flex: 4, paddingTop: 10, paddingBottom:10, minHeight: 260}}>
               <Text lineHeight={'sm'}>Movie Description</Text>
               <MovieCard movie={selectedMovie}/>
       </Box>
 
-      <Box style={{  flex: 1.8, paddingTop: 5, minHeight: 180 }}>
+      <Box style={{  flex: 1.8, marginTop: 10, marginBottom: 5, minHeight: 190 }}>
         {!isSearch ? <Text>New Movies</Text>: null}
-        <Carousel data={newMovies} onPress={(movie) => { handleSetSelectedMovie(movie) }} />
+        <Carousel data={newMovies} onPress={(movie) => { handleSetSelectedMovie(movie) }}
+          additionalBox={ (movie) => (<NativeButton2 onPress={() => {  handleStarPress(movie) }}><Center  style={{minHeight: 30, backgroundColor: '#2D2D2D', minHeight: 26,borderTopWidth: 1, borderColor: '#2F2F2F', borderBottomRightRadius: 2, borderBottomLeftRadius: 2}}><Icon as={Entypo} name="star" size={6} color={ favorites?.find(x => x.id === movie.id)? '#E40412' : '#f1f1f1' } /></Center></NativeButton2>) }
+        />
       </Box>
 
     </Box>
@@ -100,9 +103,10 @@ async function handleSearch(name){
     await (async() => setIsSearch(true))();
     await (async() => setTopMovies([]))();
     if(result.length > 10){
+      const length = result.length;
       await (async() => setNewMovies([]))();
-      await (async() => setTopMovies( result.slice(0,7) ))();
-      await (async() => setNewMovies( result.slice(8) ))();
+      await (async() => setTopMovies( result.slice(0,( (length / 2) -1 ) ) ))();
+      await (async() => setNewMovies( result.slice( length / 2 ) ))();
     } else{await (async() => setTopMovies(result) )() }
     await (async() => setSelectedMovie(result[0]) )();
   }catch(e){searchRef.current.setError(e);}
