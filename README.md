@@ -1,5 +1,7 @@
 # MenoraFlix React Native Expo Cli
 
+expo store, published link: https://expo.dev/@w3arthur/MenoraFlix?serviceType=classic&distribution=expo-go
+
 author: Arthur Zarankin
 
 please install first (yarn install)
