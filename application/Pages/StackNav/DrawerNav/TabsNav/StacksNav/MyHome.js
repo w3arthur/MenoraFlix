@@ -105,7 +105,7 @@ async function handleSearch(name){
     if(result.length > 10){
       const length = result.length;
       await (async() => setNewMovies([]))();
-      await (async() => setTopMovies( result.slice(0,( (length / 2) -1 ) ) ))();
+      await (async() => setTopMovies( result.slice(0, ( (length / 2) -1 ) ) ))();
       await (async() => setNewMovies( result.slice( length / 2 ) ))();
     } else{await (async() => setTopMovies(result) )() }
     await (async() => setSelectedMovie(result[0]) )();
