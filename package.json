@@ -4,8 +4,11 @@
   "license": "MIT",
   "author": "arthur zarankin",
   "scripts": {
-    "start": "concurrently \"yarn run development\" \"yarn run server\" \"yarn run android\"",
-    "android": "cd application && yarn android",
+    "start": "yarn run start-expo",
+    "start-cli": "concurrently \"yarn run development\" \"yarn run server\" \"yarn run android-cli\"",
+    "start-expo": "concurrently \"yarn run development\" \"yarn run server\" \"yarn run android-expo\"",
+    "android-expo": "cd app_expo && yarn android",
+    "android-cli": "cd app_cli && yarn android",
     "server": "cd server && nodemon server.js",
     "development": "node developmentEnv"
   },

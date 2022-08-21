@@ -1,0 +1,21 @@
+@hostname = http://localhost:3500/menoraflix
+
+
+
+### get Users
+get {{hostname}}/api/favorites/abc
+Content-Type: application/json
+
+{
+
+}
+
+### 
+patch {{hostname}}/api/favorites/remove
+Content-Type: application/json
+
+{
+    "name": "abc"
+    , "movie": {"id": "0001", "title": "a00002"}
+}
+

@@ -1,10 +1,10 @@
-# MenoraFlix React Native Expo Cli
+# MenoraFlix React Native Expo Cli + React Native Cli
 
-app-store example: https://play.google.com/store/apps/details?id=com.menoraflix
+
+app-store example uploaded: https://play.google.com/store/apps/details?id=com.menoraflix
 
 expo store, published link: https://expo.dev/@w3arthur/MenoraFlix?serviceType=classic&distribution=expo-go
 
-author: Arthur Zarankin
 
 please install first (yarn install)
 
@@ -16,11 +16,22 @@ yarn install
 
 cd ..
 
-cd android
+cd app-cli
 
 yarn install
 
 cd ..
+
+cd app-expo
+
+yarn install
+
+cd ..
+
+
+
+
+
 
 
 
